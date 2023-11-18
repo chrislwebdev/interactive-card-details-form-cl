@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="./stylesheet.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <title>Frontend Mentor | Interactive card details form</title>
+  </head>
+  <body>
+    <!-- 1. Cards -->
+    <main>
+      <div class="card-container">
+        <div class="card-center">
+          <div class="card-back-container">
+            <div class="card-back-info">
+              <p class="card-back-cvv-code">000</p>
+            </div>
+          </div>
+
+          <div class="card-front-container">
+            <div class="card-front-info">
+              <div class="card-front-logo">
+                <div class="card-front-logo-pt-1"></div>
+                <div class="card-front-logo-pt-2"></div>
+              </div>
+
+              <p class="card-front-number">4815 1623 4248 1516</p>
+
+              <div class="card-front-details">
+                <p class="card-front-name">chrislwebdev@gmail.com</p>
+                <div class="card-expiration">
+                  <span class="card-expiration-1">00</span>
+                  <span class="card-expiration-2">/</span>
+                  <span class="card-expiration-3">00</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. Card details form -->
+      <form action="" method="post" class="card-details-form">
+        <div class="card-details-container">
+          <label for="cardholder-name" class="cardholder-name"
+            >Cardholder Name</label
+          >
+          <input
+            type="text"
+            id="cardholder-name"
+            name="cardholder-name"
+            placeholder="chrislwebdev@gmail.com"
+            class="cardholder-name-input"
+          />
+          <p class="cardholder-name-error card-details-error">
+            Please review your name
+          </p>
+        </div>
+
+        <div class="card-details-container">
+          <label for="er" class="card-number">Card Number</label>
+          <input
+            type="text"
+            id="card-number"
+            name="card-number"
+            placeholder="e.g. 4815 1623 4248 1516"
+            class="card-number-input"
+            maxlength="19"
+          />
+          <p class="card-number-error card-details-error">
+            Please review your number
+          </p>
+        </div>
+
+        <div class="card-details-container">
+          <div class="card-details-sub-container">
+            <label for="expiration-date-1">Exp. Date</label>
+            <input
+              type="number"
+              maxlength="3"
+              id="expiration-date-1"
+              name="expiration-date-1"
+              placeholder="MM"
+              class="expiration-date-1-input"
+            />
+            <p class="card-date-1-error card-details-error">
+              Please review month
+            </p>
+          </div>
+
+          <div class="card-details-sub-container">
+            <label for="expiration-date-2">(MM / YY)</label>
+            <input
+              type="number"
+              maxlength="3"
+              id="expiration-date-2"
+              name="expiration-date-2"
+              placeholder="YY"
+              class="expiration-date-2-input"
+            />
+            <p class="card-date-2-error card-details-error">
+              Please review year
+            </p>
+          </div>
+
+          <div class="card-details-sub-container">
+            <label for="cvc-code">CVC</label>
+            <input
+              type="number"
+              id="cvc-code"
+              name="cvc-code"
+              placeholder="e.g. 123"
+              class="cvc-code-input"
+            />
+            <p class="cvc-code-error card-details-error">
+              Please review your CVC code
+            </p>
+          </div>
+        </div>
+
+        <input type="submit" value="Confirm" class="form-submit-btn" />
+      </form>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
