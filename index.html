@@ -67,6 +67,7 @@
             name="cardholder-name"
             placeholder="chrislwebdev@gmail.com"
             class="cardholder-name-input"
+            onkeypress="return !/\d/.test(event.key)"
           />
           <p class="cardholder-name-error card-details-error">
             Please review your name
@@ -93,11 +94,14 @@
             <label for="expiration-date-1">Exp. Date</label>
             <input
               type="number"
-              maxlength="3"
               id="expiration-date-1"
               name="expiration-date-1"
               placeholder="MM"
               class="expiration-date-1-input"
+              inputmode="numeric"
+              pattern="\d{2}"
+              maxlength="2"
+              oninput="if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
             />
             <p class="card-date-1-error card-details-error">
               Please review month
@@ -108,11 +112,13 @@
             <label for="expiration-date-2">(MM / YY)</label>
             <input
               type="number"
-              maxlength="3"
               id="expiration-date-2"
               name="expiration-date-2"
               placeholder="YY"
               class="expiration-date-2-input"
+              pattern="\d{2}"
+              maxlength="2"
+              oninput="if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
             />
             <p class="card-date-2-error card-details-error">
               Please review year
@@ -127,6 +133,9 @@
               name="cvc-code"
               placeholder="e.g. 123"
               class="cvc-code-input"
+              pattern="\d{3}"
+              maxlength="3"
+              oninput="if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
             />
             <p class="cvc-code-error card-details-error">
               Please review your CVC code

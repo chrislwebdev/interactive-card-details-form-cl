@@ -74,14 +74,6 @@ cardNumber.addEventListener("keyup", (e) => {
     const cardTextSliced = cardNumberText.textContent.slice(0, 19);
     cardNumberText.textContent = cardTextSliced;
   }
-
-  // if(e.ctrlKey || e.altKey || typeof e.key !== 'string' || e.key.length !== 1) {
-  //     return;
-  // }
-
-  // if(!digitPeriodRegExp.test(e.key)) {
-  //     e.preventDefault();
-  // }
 });
 
 cardNumber.addEventListener(
@@ -103,12 +95,6 @@ cardNumber.addEventListener(
   false
 );
 
-expDateOne.addEventListener("keydown", function (e) {
-  if (expDateOne.value.length > 1 && e.key.length === 1) {
-    e.preventDefault();
-  }
-});
-
 expDateOne.addEventListener("keyup", function () {
   expDateOneText.textContent = expDateOne.value;
 
@@ -121,12 +107,6 @@ expDateOne.addEventListener("keyup", function () {
   }
 });
 
-expDateTwo.addEventListener("keydown", function (e) {
-  if (expDateTwo.value.length > 1 && e.key.length === 1) {
-    e.preventDefault();
-  }
-});
-
 expDateTwo.addEventListener("keyup", function (e) {
   expDateTwoText.textContent = expDateTwo.value;
 
@@ -136,12 +116,6 @@ expDateTwo.addEventListener("keyup", function (e) {
 
   if (expDateTwo.value.length === 1) {
     expDateTwoText.textContent = `${expDateTwo.value}0`;
-  }
-});
-
-cvcCode.addEventListener("keydown", function (e) {
-  if (cvcCode.value.length > 2 && e.key.length === 1) {
-    e.preventDefault();
   }
 });
 
@@ -160,16 +134,17 @@ cardInput.addEventListener("paste", function (e) {
 cardInput.addEventListener("submit", function (e) {
   e.preventDefault();
 
-  if (cardName.value.length === 0) {
-    e.preventDefault();
-    const cardNameError = document.querySelector(".card-details-error");
-    cardNameError.classList.add("element-visible");
-    setTimeout(function () {
-      cardNameError.classList.remove("element-visible");
-    }, 3000);
+  if (cardName.value.includes)
+    if (cardName.value.length === 0) {
+      e.preventDefault();
+      const cardNameError = document.querySelector(".card-details-error");
+      cardNameError.classList.add("element-visible");
+      setTimeout(function () {
+        cardNameError.classList.remove("element-visible");
+      }, 3000);
 
-    return;
-  }
+      return;
+    }
 
   if (cardNumber.value.length < 19) {
     console.log(`Number less than 16`);
@@ -219,11 +194,14 @@ cardInput.addEventListener("submit", function (e) {
 
     return;
   }
-
+  const d = new Date();
+  const year = d.getFullYear();
+  const thisYear = year % 100;
+  console.log(thisYear);
   if (
     expDateTwo.value.length < 2 ||
     expDateTwo.value.length > 2 ||
-    expDateTwo.value < 23
+    expDateTwo.value < thisYear
   ) {
     e.preventDefault();
     const cardDate2Error = document.querySelector(".card-date-2-error");
